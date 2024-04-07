@@ -1,0 +1,26 @@
+{% extends 'proyectowebapp/base.html' %}
+
+{% load static %}
+
+{% block title %}Registro{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content%} 
+
+    <form method="post" action="" style="color:black;">
+        {% csrf_token %} 
+        <div style="width:75%; margin:auto;">
+            {{ form.username|as_crispy_field }}
+            {{ form.email|as_crispy_field }}
+            {{ form.first_name|as_crispy_field }}
+            {{ form.last_name|as_crispy_field }}
+            {{ form.password1|as_crispy_field }}
+            {{ form.password2|as_crispy_field }}
+            {{ form.direccion|as_crispy_field }}  
+            <button type="submit" class="btn btn-success">Registrate</button>
+        </div>
+    </form>
+    
+
+{% endblock %}

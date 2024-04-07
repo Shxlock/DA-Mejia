@@ -1,0 +1,54 @@
+<div class="hm-header">
+    <div class="container">
+        <div class="header-menu">
+            <div class="hm-logo">
+                <a href="#">
+                    <img src="img/logo-home-master-store.png" alt="">
+                </a>
+            </div>
+            <nav class="hm-menu">
+                <ul>
+                    {% if request.user.is_authenticated %}
+                        
+                        <span class="bienvenida">¡Bienvenido a DA Mejia!</span>
+                        <li><a href="{% url 'Home' %}">Productos</a></li>
+                        <li><a href="{% url 'Nosotros' %}">Nosotros</a></li>
+                        <li><a href="{% url 'Contacto' %}">Contacto</a></li>
+                        
+                    {% else %}
+                        <a href="{% url 'Autenticacion' %}">Registrarse</a>
+                        <a href="{% url 'logear' %}">Iniciar Sesión</a>
+                    {% endif %}
+                    
+                </ul>
+                <div class="hm-icon-cart">
+                    <a href="#" id="toggle-cart">
+                        <i class="las la-shopping-cart"></i>
+                        <span></span>
+                    </a>
+                    <div class="cart-items" id="cart-items-container" style="display: none;">
+                        {% include 'carro/widget.html' %}
+                    </div>
+                    
+                </div>
+                <div class="icon-menu">
+                    <button type="button"><i class="fas fa-bars"></i></button>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>   
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    const toggleCart = $("#toggle-cart");
+    const cartItemsContainer = $("#cart-items-container");
+
+    toggleCart.click(function(event) {
+        event.preventDefault();
+        cartItemsContainer.toggle();
+    });
+});
+</script> 
+
