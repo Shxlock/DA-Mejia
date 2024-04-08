@@ -1,0 +1,73 @@
+{% extends 'proyectowebapp/base.html' %}
+{% load static %}
+{% load historial_tags %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/historial.css' %}">
+{% endblock %}
+{% block title %}Historial{% endblock %}
+{% block content %}
+    <span class="enloace">
+        <a class="inicio" href="{% url 'Home' %}">Volver al Inicio</a>
+    </span>
+
+    
+    <div class="titulo">
+        <h1>Historial</h1>
+    </div>
+
+    <div class="container">
+        <form method="get" class="d-flex justify-content-center">
+            <div class="col-auto mx-2">
+                <input class="form-control" placeholder="nombre del empleado.." type="text" aria-label="default input example" name="nombre_usuario" value="{{ request.GET.nombre_empleado }}">
+            </div>
+            <div class="col-auto mx-2">
+                <button type="submit" class="btn btn-primary">Filtrar por nombre</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <form method="get" class="d-flex justify-content-center">
+            <div class="col-auto mx-2">
+                <label>Filtrar por:</label>
+            </div>
+            <div class="col-auto mx-2">
+                <button type="submit" name="ultimos_7_dias" value="true" class="filtrar">Últimos 7 días</button>
+                <button type="submit" name="ultimos_15_dias" value="true" class="filtrar">Últimos 15 días</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="resultados">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Usuario</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Cantidad Comprada</th>
+                <th scope="col">Total a pagar</th>
+                <th scope="col">Fecha Compra</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for historia in historial %}
+                <tr>
+                    <td>{{ historia.usuario.username }}</td>
+                    <td>{{ historia.producto.nombre }}</td>
+                    <td>{{ historia.cantidad }}</td>
+                    <td>{{ historia.cantidad|multiplica:historia.producto.precio }}</td>
+                    <td>{{ historia.fecha_compra }}</td>
+                    
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">Sin compras.</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}

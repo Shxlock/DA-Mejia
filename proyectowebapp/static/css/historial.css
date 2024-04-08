@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.titulo{
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+.d-flex justify-content-center{
+    width: 60%;
+}
+
+.container form{
+    padding: 10px 20px;
+}
+
+.filtrar{
+    border: none;
+    background-color: white;
+    text-decoration: underline;
+    color: gray;
+}
+
+.resultados{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+    margin-left: 250px;
+}
+
+.table{
+    width: 80%;
+}
+
+.enloace{
+    display: flex;
+    padding-left: 350px;
+    padding-top: 20px;
+}
+
+a{
+    text-decoration: none;
+}

@@ -152,6 +152,13 @@ img{
 }
 
 
+.centrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
 
 /*=================================
     ESTILOS: Headerhm
@@ -174,6 +181,7 @@ img{
     transition: all .6s ease-in-out;
     margin-top: 20px;
     margin-bottom: 20px;
+    
     box-sizing: border-box;
 }
 /* .hm-header .container{
@@ -199,7 +207,8 @@ img{
 }
 
 .header-menu .hm-logo{
-    width: 202px;
+    width: 80px;
+    height: 80px;
 }
 
 .hm-menu{

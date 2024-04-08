@@ -1,9 +1,11 @@
+{% load static %}
+
 <div class="hm-header">
     <div class="container">
         <div class="header-menu">
             <div class="hm-logo">
                 <a href="#">
-                    <img src="img/logo-home-master-store.png" alt="">
+                    <img src="{% static 'imagenes/logoDAMEJIA.jpeg' %}" alt="">
                 </a>
             </div>
             <nav class="hm-menu">
@@ -11,6 +13,10 @@
                     {% if request.user.is_authenticated %}
                         
                         <span class="bienvenida">¡Bienvenido a DA Mejia!</span>
+                        {% if user.is_superuser %}
+                            <li><a href="{% url 'Historial' %}">Historial</a></li>
+                        {% endif %}
+                        
                         <li><a href="{% url 'Home' %}">Productos</a></li>
                         <li><a href="{% url 'Nosotros' %}">Nosotros</a></li>
                         <li><a href="{% url 'Contacto' %}">Contacto</a></li>
@@ -27,7 +33,7 @@
                         <span></span>
                     </a>
                     <div class="cart-items" id="cart-items-container" style="display: none;">
-                        {% include 'carro/widget.html' %}
+                        {% comment %} {% include 'carro/widget.html' %} {% endcomment %}
                     </div>
                     
                 </div>
@@ -39,7 +45,7 @@
     </div>
 </div>   
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% comment %} <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
     const toggleCart = $("#toggle-cart");
@@ -50,5 +56,5 @@ $(document).ready(function() {
         cartItemsContainer.toggle();
     });
 });
-</script> 
+</script>  {% endcomment %}
 
