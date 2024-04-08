@@ -1,62 +1,4 @@
-/* *{
-    padding: 0px;
-    margin: 0;
-}
-
-
-
-
-.hm-wrapper{
-    position: relative;
-}
-
-.hm-wrapper, body{
-    min-height: 100%;
-}
-
-
-.container{
-    width: 1122px;
-    padding: 0 15px;
-    margin: 0 auto;
-}
-
-@media screen and (min-width: 1px){
-    .container{
-        width: auto;
-        max-width: 1122px !important;
-    }
-}
-
-
-.header-menu{
-    display: flex;
-    height: 100%;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header-menu .hm-logo{
-    width: 202px;
-}
-
-
-.hm-menu{
-    display: flex;
-    position: relative;
-}
-
-
-
-footer{
-    background-color: red;
-}
- */
-
-
-
-
- :root{
+:root{
     --color-principal: #FF5A5F;
     --color-primary-hover:#d64246;
     --color-verde:#04A75B;
@@ -73,6 +15,11 @@ footer{
     padding: 0px;
     margin: 0;
 }
+
+.enlace-header{
+    margin: 0 10px;
+}
+
 
 body{
     font-family: 'Poppins', sans-serif;
@@ -629,9 +576,7 @@ footer .foo-row .foo-col ul li a:hover{
 
 
 
-/*=================================
-    ESTILOS: RESPOIVE
-==================================*/
+
 @media screen and (max-width: 1024px){
     .grid-product{
         grid-template-columns: repeat(3,calc(33.33% - 2rem*2/3));

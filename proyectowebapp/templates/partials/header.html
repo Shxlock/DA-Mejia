@@ -14,16 +14,16 @@
                         
                         <span class="bienvenida">¡Bienvenido a DA Mejia!</span>
                         {% if user.is_superuser %}
-                            <li><a href="{% url 'Historial' %}">Historial</a></li>
+                            <li><a href="{% url 'Historial' %}" class="enlace-header">Historial</a></li>
                         {% endif %}
                         
-                        <li><a href="{% url 'Home' %}">Productos</a></li>
-                        <li><a href="{% url 'Nosotros' %}">Nosotros</a></li>
-                        <li><a href="{% url 'Contacto' %}">Contacto</a></li>
-                        
+                        <li><a href="{% url 'Home' %}" class="enlace-header">Productos</a></li>
+                        <li><a href="{% url 'Nosotros' %}" class="enlace-header">Nosotros</a></li>
+                        <li><a href="{% url 'Contacto' %}" class="enlace-header">Contacto</a></li>
+                        <li><a href="{% url 'cerrar_sesion' %}" class="enlace-header">Cerrar Sesión</a></li>
                     {% else %}
-                        <a href="{% url 'Autenticacion' %}">Registrarse</a>
-                        <a href="{% url 'logear' %}">Iniciar Sesión</a>
+                        <a href="{% url 'Autenticacion' %}" class="enlace-header">Registrarse</a>
+                        <a href="{% url 'logear' %}" class="enlace-header">Iniciar Sesión</a>
                     {% endif %}
                     
                 </ul>

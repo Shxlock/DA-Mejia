@@ -22,7 +22,7 @@ class Carro:
             for key,value in self.carro.items():
                 if key == str(producto.id):
                     value["cantidad"]=value["cantidad"]+1
-                    value["precio"]=float(value["precio"])+producto.precio
+                    value["precio"]=int(value["precio"])+producto.precio
                     break  
                 
         self.guardar_carro()

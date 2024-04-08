@@ -1,0 +1,40 @@
+label {
+    color: black;
+
+}
+
+
+.div-centrar{
+    display: flex;
+    justify-content: center;
+    padding: 60px;
+}
+
+.titulo{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.div-centrar form div{
+    width: 350px;
+}
+
+.div-button{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+form input{
+    margin: 10px 0;
+    width: 350px;
+}
+
+form{
+    color: black;
+}
+
+input{
+    width: 10px;
+}

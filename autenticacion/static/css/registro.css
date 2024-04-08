@@ -1,0 +1,28 @@
+form{
+    width: 1000px;
+}
+
+.centrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.titulo{
+    margin: 10px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    color: black;
+}
+
+.div-button{
+    padding: 10px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+
