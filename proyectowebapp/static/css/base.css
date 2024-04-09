@@ -20,6 +20,13 @@
     margin: 0 10px;
 }
 
+a{
+    text-decoration: none;
+}
+
+.a:hover{
+    color:#C55B11;
+}
 
 body{
     font-family: 'Poppins', sans-serif;

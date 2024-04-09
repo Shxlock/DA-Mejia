@@ -24,8 +24,8 @@
                     <td>{{value.nombre}}</td>
                     <td>{{value.cantidad}}</td>
                     <td>
-                        <a href="{% url 'carro:agregar' value.producto_id %}" class="btn btn-sm btn-success">+</a>
                         <a href="{% url 'carro:restar' value.producto_id %}" class="btn btn-sm btn-success">-</a>
+                        <a href="{% url 'carro:agregar' value.producto_id %}" class="btn btn-sm btn-success">+</a>
                         {{value.precio}}
                     </td>
                 <tr>
@@ -50,7 +50,7 @@
     <tfoot>
         <tr>
             <td colspan="3">
-                Total: {{ importe_total_carro }}
+                <b>Total: {{ importe_total_carro }}</b>
             </td>
         </tr>
 

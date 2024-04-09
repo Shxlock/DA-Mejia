@@ -5,15 +5,16 @@
         <div class="header-menu">
             <div class="hm-logo">
                 <a href="#">
-                    <img src="{% static 'imagenes/logoDAMEJIA.jpeg' %}" alt="">
+                    <img src="{% static 'imagenes/logoDAMEJIA.png' %}" alt="">
                 </a>
             </div>
             <nav class="hm-menu">
                 <ul>
                     {% if request.user.is_authenticated %}
                         
-                        <span class="bienvenida">¡Bienvenido a DA Mejia!</span>
+                        <span class="bienvenida">¡Bienvenido a D.A Mejia!</span>
                         {% if user.is_superuser %}
+                            <li><a href="{% url 'admin:index' %}" class="enlace-header">Panel de Administración</a></li>
                             <li><a href="{% url 'Historial' %}" class="enlace-header">Historial</a></li>
                         {% endif %}
                         
@@ -27,16 +28,7 @@
                     {% endif %}
                     
                 </ul>
-                <div class="hm-icon-cart">
-                    <a href="#" id="toggle-cart">
-                        <i class="las la-shopping-cart"></i>
-                        <span></span>
-                    </a>
-                    <div class="cart-items" id="cart-items-container" style="display: none;">
-                        {% comment %} {% include 'carro/widget.html' %} {% endcomment %}
-                    </div>
-                    
-                </div>
+                
                 <div class="icon-menu">
                     <button type="button"><i class="fas fa-bars"></i></button>
                 </div>
@@ -45,16 +37,4 @@
     </div>
 </div>   
 
-{% comment %} <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-$(document).ready(function() {
-    const toggleCart = $("#toggle-cart");
-    const cartItemsContainer = $("#cart-items-container");
-
-    toggleCart.click(function(event) {
-        event.preventDefault();
-        cartItemsContainer.toggle();
-    });
-});
-</script>  {% endcomment %}
 

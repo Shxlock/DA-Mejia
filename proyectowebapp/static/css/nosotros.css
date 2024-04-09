@@ -3,12 +3,23 @@
     justify-content: center;
     align-items: center;
     margin-top: 100px;
+    margin-bottom: 100px;
     
 }
+
+a{
+    text-decoration: none;
+}
+
 
 .contenido{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 100px;
+}
+
+#contenedor-general{
+    margin-top: 50px;
+    margin-bottom: 200px;
 }
