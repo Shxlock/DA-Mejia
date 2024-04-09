@@ -7,7 +7,6 @@ from datetime import datetime, timedelta
 
 def home(request):
     productos = Producto.objects.all()
-    
     return render(request,'proyectowebapp/home.html',{'productos':productos})
 
 def nosotros(request):
@@ -22,12 +21,12 @@ def registros(request):
     ultimos_15_dias = request.GET.get('ultimos_15_dias')
 
     fecha_actual = datetime.now().date()
-    fecha_inicio_7_dias = fecha_actual - timedelta(days=7)
+    fecha_inicio_7_dias = fecha_actual - timedelta(days=7) 
     fecha_inicio_15_dias = fecha_actual - timedelta(days=15)
     historial = Factura.objects.all()
 
     if nombre_usuario:
-        historial = historial.filter(usuario__username__icontains=nombre_usuario)
+        historial = historial.filter(usuario__username__icontains=nombre_usuario) 
     if ultimos_7_dias:
         historial = historial.filter(fecha_compra__gte=fecha_inicio_7_dias, fecha_compra__lte=fecha_actual)
 

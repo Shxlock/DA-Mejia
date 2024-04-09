@@ -7,8 +7,9 @@ from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 
 # Create your views here.
 class VRegistro(View):
+    
     def get(self, request):
-        form = CustomUserCreationForm()  # Usar el nuevo formulario personalizado
+        form = CustomUserCreationForm()  
         return render(request, 'registro/registro.html', {'form': form}) 
     
     def post(self, request):

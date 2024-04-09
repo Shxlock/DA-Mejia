@@ -38,7 +38,6 @@ class Carro:
             self.guardar_carro()       
             
     def restar(self,producto):
-        #producto.id=str(producto.id)
         for key,value in self.carro.items():
                 if key == str(producto.id):
                     value["cantidad"]=value["cantidad"]-1
