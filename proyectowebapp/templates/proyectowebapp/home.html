@@ -9,8 +9,10 @@
 {% load crispy_forms_tags %}
 
 {% block content%} 
-
+    
     <div class="container">
+        
+        
 
         <div style="float:right;">
             {% if request.user.is_authenticated %}
@@ -18,31 +20,34 @@
             {% else %}
                 <div class="alert alert-danger text-center">Inicia sesión para ver el carro.</div> 
             {% endif %}
-        </div>
-
-
+        </div> 
+        
+    
         <div class="row">
-
             {% for producto in productos %}
-
-            <div class="col-md-3">
-
-                <div class="card" style="width:80%; margin:10px 10px;">
-                    <img src="{{producto.imagen.url}}" style="height:20%;" class="card-img-top">
-                    <div class="card-body" style="text-align:center;">
-                        <h6 class="card-title">{{producto.nombre}}</h6>
-                        <p class="card-text">Precio: {{producto.precio}}</p>
-                        <p class="card-text">Stock: {{producto.cantidad}}</p>
-                        
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="{% url 'carro:agregar' producto.id %}" class="btn btn-success">Agregar al carro</a>
+                <div class="col-md-3">
+                    <div class="card" style="width:100%; margin:10px 5px;">
+                        <img src="{{producto.imagen.url}}" style="height:20%;" class="card-img-top">
+                        <div class="card-body" style="text-align:center;">
+                            <h6 class="card-title">{{producto.nombre}}</h6>
+                            <p class="card-text">Precio: {{producto.precio}}</p>
+                            <p class="card-text">Stock: {{producto.cantidad}}</p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="{% url 'carro:agregar' producto.id %}" class="btn btn-success">Agregar al carro</a>
+                        </div>
                     </div>
                 </div>
-
-            </div>
             {% endfor %}
         </div>
+        {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+
     </div>
-    
+
 {% endblock %}

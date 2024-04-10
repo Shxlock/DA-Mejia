@@ -4,6 +4,15 @@ label {
 }
 
 
+a:hover{
+    color:#C55B11;   
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
 .div-centrar{
     display: flex;
     justify-content: center;

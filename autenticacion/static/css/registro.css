@@ -8,6 +8,14 @@ form{
     align-items: center;
 }
 
+a:hover{
+    color:#C55B11;   
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
 
 .titulo{
     margin: 10px;

@@ -2,18 +2,17 @@ from django.shortcuts import render,redirect
 
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.views import View
 from .models import Factura,Producto
-
+from django.db.models import F
 from carrito.carro import Carro
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.core.mail import send_mail
 
-
 def enviar_mail(request, **kwargs):
     carro = Carro(request)
     productos_factura = []
-
     for key, value in carro.carro.items():
         factura = Factura.objects.create(
             usuario=request.user,
@@ -21,6 +20,8 @@ def enviar_mail(request, **kwargs):
             cantidad=value["cantidad"]
         )
         productos_factura.append(factura)
+        
+        Producto.objects.filter(id=key).update(cantidad=F('cantidad') - value["cantidad"])
 
     asunto = "Gracias por la compra"
     nombre_usuario = request.user.username
@@ -44,6 +45,14 @@ def enviar_mail(request, **kwargs):
     
     carro.limpiar_carro()
 
-    messages.success(request, "Compra realizada correctamente")
+   
+    messages.add_message(request, messages.SUCCESS, "Compra realizada correctamente")
     return redirect("Home")
+    
+
+
+
+
+
+
 

@@ -6,6 +6,7 @@
 
 a{
     text-decoration: none;
+    
 }
 
 
@@ -14,4 +15,8 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.container{
+    justify-content: space-between;
 }
