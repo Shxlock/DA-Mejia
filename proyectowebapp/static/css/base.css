@@ -7,13 +7,8 @@
     --color-footer: #151515;
 }
 
-*,::after, ::before{
-    box-sizing: border-box;
-}
-
-*{
-    padding: 0px;
-    margin: 0;
+.hm-logo:hover{
+    transform: scale(1.13);
 }
 
 .enlace-header{
@@ -255,7 +250,7 @@ footer{
         margin-bottom: 10px;
     }
 
-    menu */
+    menu 
     header-menu-movil{
         background: var(--color-principal);
         position: fixed;
@@ -269,7 +264,7 @@ footer{
         z-index: 1000;
         transition: all .3s ease;
         transform: translate(-100%);
-    } */
+    } 
 
     .header-menu-movil.active{
         transform: translate(0%);
@@ -287,7 +282,7 @@ footer{
         background: #fff;
         font-size: 18px;
         color: var(--color-negro);
-    } */
+    } 
 
     .header-menu-movil ul li{
         position: relative;

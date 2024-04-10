@@ -12,9 +12,20 @@
     
     <div class="container">
         
-        
+        {% if messages %}
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="alert alert-secondary" role="alert">
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
 
-        <div style="float:right;">
+        <div style="float:right;"> 
+        
             {% if request.user.is_authenticated %}
                 {% include "carro/widget.html" %}
             {% else %}
@@ -31,22 +42,25 @@
                         <div class="card-body" style="text-align:center;">
                             <h6 class="card-title">{{producto.nombre}}</h6>
                             <p class="card-text">Precio: {{producto.precio}}</p>
-                            <p class="card-text">Stock: {{producto.cantidad}}</p>
+                            {% if producto.cantidad <= 0 %}
+                            <p class="card-text">No hay stock</p>
+                            {%else %}
+                                <p class="card-text">Stock: {{producto.cantidad}}</p>
+                            {% endif %}
+                            
                         </div>
                         <div class="card-footer text-center">
-                            <a href="{% url 'carro:agregar' producto.id %}" class="btn btn-success">Agregar al carro</a>
+                            {% if producto.cantidad > 0 %}
+                                <a href="{% url 'carro:agregar' producto.id %}" class="btn btn-success">Agregar al carro</a>
+                            {%else %}
+                                <a class="btn btn-danger">No hay stock</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
             {% endfor %}
         </div>
-        {% if messages %}
-            <ul class="messages">
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
+        
 
     </div>
 
